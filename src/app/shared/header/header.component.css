@@ -1,0 +1,24 @@
+/* .header-logo h1 {
+    text-align: center;
+} */
+
+/* Navbar Section */
+.bg-pink {
+    background-color: #ffcdcf;
+}
+
+.navbar ul li {
+    margin-right: 20px;
+}
+
+.navbar ul li a {
+    color: #53383d;
+}
+
+.navbar ul li a:hover {
+    border-bottom: 1px solid #53383d;
+}
+
+.active-link {
+    border-bottom: 1px solid #53383d;
+}
