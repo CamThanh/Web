@@ -1,5 +1,5 @@
-import { NgModule } from "../../../node_modules/@angular/core";
-import { RouterModule } from "../../../node_modules/@angular/router";
+import { NgModule } from "@angular/core";
+import { RouterModule } from "@angular/router";
 import { HomepageComponent } from "./homepage/homepage.component";
 import { CungquanghangComponent } from "./cungquanghang/cungquanghang.component";
 import { ReviewComponent } from "./review/review.component";
