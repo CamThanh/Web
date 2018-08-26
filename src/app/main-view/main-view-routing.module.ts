@@ -9,7 +9,6 @@ import { SaccamthanhComponent } from "./saccamthanh/saccamthanh.component";
 @NgModule({
     imports: [
         RouterModule.forChild([
-            { path: '', redirectTo: 'homepage', pathMatch: 'full' },
             { path: 'homepage', component: HomepageComponent },
             { path: 'cungquanghang', component: CungquanghangComponent },
             { path: 'review', component: ReviewComponent },
