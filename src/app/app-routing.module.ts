@@ -17,7 +17,7 @@ import { MainLayoutComponent } from "./layouts/main-layout/main-layout.component
                 children: [
                     {
                         path: '',
-                        loadChildren: () => MainViewModule
+                        loadChildren: './main-view/main-view.module#MainViewModule'
                     }
                 ]
             }
