@@ -8,8 +8,9 @@ import { CungquanghangComponent } from './cungquanghang/cungquanghang.component'
 import { ReviewComponent } from './review/review.component';
 import { ComposeComponent } from './compose/compose.component';
 import { SaccamthanhComponent } from './saccamthanh/saccamthanh.component';
-import { LoginComponent } from './login/login.component';
-import { RegisterComponent } from './register/register.component';
+import { RegisterComponent } from './auth/register/register.component';
+import { LoginComponent } from './auth/login/login.component';
+import { AuthComponent } from './auth/auth.component';
 
 @NgModule({
   imports: [
@@ -22,8 +23,9 @@ import { RegisterComponent } from './register/register.component';
     ReviewComponent,
     ComposeComponent,
     SaccamthanhComponent,
+    RegisterComponent,
     LoginComponent,
-    RegisterComponent
+    AuthComponent
   ]
 })
 export class MainViewModule { }
