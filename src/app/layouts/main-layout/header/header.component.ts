@@ -16,7 +16,19 @@ export class HeaderComponent implements OnInit {
   ngOnInit() {
   }
 
+  openModalRegisterComponent() {
+    const initialState = {
+      isLogin: false,
+      isRegister: true,
+    };
+    this.bsModalRef = this._modalService.show(AuthComponent, { initialState, class: "modal-lg" });
+  }
+
   openModalLoginComponent() {
-    this.bsModalRef = this._modalService.show(AuthComponent,  {class: 'modal-lg'});
+    const initialState = {
+      isLogin: true,
+      isRegister: false,
+    };
+    this.bsModalRef = this._modalService.show(AuthComponent, { initialState, class: "modal-lg" });
   }
 }
