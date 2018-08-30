@@ -1,0 +1,53 @@
+#formRegister {
+    margin-top: 30px;
+}
+
+.input-container {
+    display: -ms-flexbox; /* IE10 */
+    display: flex;
+    width: 100%;
+    margin-bottom: 15px;
+}
+
+.button-container {
+    display: flex;
+    justify-content: center;
+}
+
+.icon {
+    padding-top: 15px;
+    background: #fa979a;
+    color: white;
+    min-width: 50px;
+    text-align: center;
+}
+
+.input-field {
+    width: 100%;
+    padding: 10px;
+    outline: none;
+}
+
+.input-field:focus {
+    border: 2px solid #fa979a;
+}
+
+/* Set a style for the submit button */
+.btn {
+    float: right;
+    background-color: #fa979a;
+    color: white;
+    padding: 15px 20px;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    opacity: 0.9;
+}
+
+.btn:hover {
+    opacity: 1;
+}
+
+#sign-in-icon {
+    margin-right: 10px;
+}
