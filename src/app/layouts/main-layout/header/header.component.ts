@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 
 import { BsModalRef, BsModalService, ModalOptions } from 'ngx-bootstrap';
 import { AuthComponent } from '../../../main-view/auth/auth.component';
@@ -6,7 +6,8 @@ import { AuthComponent } from '../../../main-view/auth/auth.component';
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
-  styleUrls: ['./header.component.css']
+  styleUrls: ['./header.component.css'],
+  encapsulation: ViewEncapsulation.None
 })
 export class HeaderComponent implements OnInit {
   bsModalRef: BsModalRef;
@@ -21,7 +22,7 @@ export class HeaderComponent implements OnInit {
       isLogin: false,
       isRegister: true,
     };
-    this.bsModalRef = this._modalService.show(AuthComponent, { initialState, class: "modal-lg" });
+    this.bsModalRef = this._modalService.show(AuthComponent, { initialState, class: "custom-modal" });
   }
 
   openModalLoginComponent() {
@@ -29,6 +30,6 @@ export class HeaderComponent implements OnInit {
       isLogin: true,
       isRegister: false,
     };
-    this.bsModalRef = this._modalService.show(AuthComponent, { initialState, class: "modal-lg" });
+    this.bsModalRef = this._modalService.show(AuthComponent, { initialState, class: "custom-modal" });
   }
 }
