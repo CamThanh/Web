@@ -1,18 +1,12 @@
 /* HighLight SECTION */
-.highlight {
-    width: 100%;
-}
-
 .highlight-content {
-    width: 95%;
     overflow: hidden;
     border: 1px solid black;
     margin-top: 30px;
-    margin-left: auto;
-    margin-right: auto; 
+    margin-bottom: 30px;
 }
 
-h1 {
+h6 {
     font-size: 100px;
     font-weight: 300;
     color: grey;
@@ -34,4 +28,24 @@ p {
     float: right;
 }
 
-/* NOVEL TYPE SECTION */
+/* NOVEL CATEGORIES SECTION */
+.category {
+    height: 160px;
+    padding: 5px;
+    background-color: #ffcdcf;
+    color: #53383d;
+    font-weight: bold;
+    font-size: 45px;
+    text-align: center;
+    line-height: 50px;
+}
+
+/* LATEST NOVELS */
+.latest-novels-header {
+    background-color: #e3f1f2;
+    color: grey;
+    font-size: 35px;
+    font-weight: bold;
+    margin-top: 20px;
+    text-align: center;
+}
