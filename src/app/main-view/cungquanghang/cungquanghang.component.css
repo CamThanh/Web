@@ -1,0 +1,37 @@
+/* HighLight SECTION */
+.highlight {
+    width: 100%;
+}
+
+.highlight-content {
+    width: 95%;
+    overflow: hidden;
+    border: 1px solid black;
+    margin-top: 30px;
+    margin-left: auto;
+    margin-right: auto; 
+}
+
+h1 {
+    font-size: 100px;
+    font-weight: 300;
+    color: grey;
+    margin-top: 5px;
+    margin-left: 10px;
+}
+
+h5 {
+    color: grey;
+    margin-left: 10px;
+}
+
+p {
+    color: grey;
+    margin-left: 10px;
+}
+
+.see-more {
+    float: right;
+}
+
+/* NOVEL TYPE SECTION */

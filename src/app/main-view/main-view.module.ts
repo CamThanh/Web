@@ -11,6 +11,8 @@ import { SaccamthanhComponent } from './saccamthanh/saccamthanh.component';
 import { RegisterComponent } from './auth/register/register.component';
 import { LoginComponent } from './auth/login/login.component';
 import { AuthComponent } from './auth/auth.component';
+import { VipComponent } from './vip/vip.component';
+import { TuyendungComponent } from './tuyendung/tuyendung.component';
 
 @NgModule({
   imports: [
@@ -25,7 +27,9 @@ import { AuthComponent } from './auth/auth.component';
     SaccamthanhComponent,
     RegisterComponent,
     LoginComponent,
-    AuthComponent
+    AuthComponent,
+    VipComponent,
+    TuyendungComponent
   ]
 })
 export class MainViewModule { }
