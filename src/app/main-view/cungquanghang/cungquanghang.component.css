@@ -3,7 +3,7 @@
     overflow: hidden;
     border: 1px solid black;
     margin-top: 30px;
-    margin-bottom: 30px;
+    margin-bottom: 20px;
 }
 
 h6 {
@@ -29,23 +29,26 @@ p {
 }
 
 /* NOVEL CATEGORIES SECTION */
+.flex-container {
+    display: flex;
+}
+
 .category {
-    height: 160px;
-    padding: 5px;
     background-color: #ffcdcf;
     color: #53383d;
-    font-weight: bold;
-    font-size: 45px;
+    width: 100%;
+    margin-bottom: 10px;
     text-align: center;
-    line-height: 50px;
+    font-size: 20px;
+    font-weight: bold;
 }
 
 /* LATEST NOVELS */
 .latest-novels-header {
     background-color: #e3f1f2;
     color: grey;
-    font-size: 35px;
+    font-size: 20px;
     font-weight: bold;
-    margin-top: 20px;
+    margin-top: 10px;
     text-align: center;
 }

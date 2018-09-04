@@ -3,14 +3,19 @@
 </div>
 
 <!-- Navbar -->
-<nav class="navbar navbar-expand-sm bg-pink sticky-top">
+<nav class="navbar navbar-expand-lg bg-pink navbar-light sticky-top">
   <!-- Brand -->
-  <!-- <a class="navbar-brand" [routerLink]="['/homepage']">
-    <img src="../../../../assets/images/Logo.PNG" width="150px" height="80">
-  </a> -->
+  <a class="navbar-brand" [routerLink]="['/homepage']">
+    TRANG CHỦ
+  </a>
 
-  <div class="collapse navbar-collapse">
-    <ul class="navbar-nav">
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+    aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
       <li class="nav-item">
         <a class="nav-link" [routerLink]="['/cungquanghang']" routerLinkActive="active-link">CUNG QUẢNG HẰNG</a>
       </li>
@@ -30,13 +35,14 @@
         <a class="nav-link" [routerLink]="['/tuyendung']" routerLinkActive="active-link">TUYỂN DỤNG</a>
       </li>
     </ul>
+
+    <ul class="navbar-nav">
+      <li class="nav-item">
+        <a class="nav-link" (click)="openModalRegisterComponent()">ĐĂNG KÝ</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" (click)="openModalLoginComponent()">ĐĂNG NHẬP</a>
+      </li>
+    </ul>
   </div>
-  <ul class="navbar-nav">
-    <li class="nav-item">
-      <a class="nav-link" (click)="openModalRegisterComponent()">ĐĂNG KÝ</a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link" (click)="openModalLoginComponent()">ĐĂNG NHẬP</a>
-    </li>
-  </ul>
 </nav>
