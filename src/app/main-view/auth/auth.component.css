@@ -1,5 +1,5 @@
 .custom-modal {
-    width: 600px;
+    width: auto;
 }
 
 .modal-content {
@@ -20,7 +20,7 @@
     border-color: #fa979a #fa979a #fff;
 }
 
-a {
+.auth-body-header {
     font-weight: bold;
     color: #fa979a;
 }

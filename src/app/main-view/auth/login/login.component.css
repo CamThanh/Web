@@ -33,11 +33,20 @@
 }
 
 /* Set a style for the submit button */
-.btn {
+.btn-sign-in {
     float: right;
     background-color: #fa979a;
     color: white;
     padding: 15px 20px;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    opacity: 0.9;
+}
+
+.btn-facebook-sign-in {
+    float: right;
+    background-color: white;
     border: none;
     cursor: pointer;
     width: 100%;
@@ -50,4 +59,9 @@
 
 #sign-in-icon {
     margin-right: 10px;
+}
+
+.or-note {
+    margin-top: 20px;
+    text-align: center;
 }
