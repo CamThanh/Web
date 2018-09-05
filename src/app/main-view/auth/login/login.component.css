@@ -34,7 +34,6 @@
 
 /* Set a style for the submit button */
 .btn-sign-in {
-    float: right;
     background-color: #fa979a;
     color: white;
     padding: 15px 20px;
@@ -45,12 +44,19 @@
 }
 
 .btn-facebook-sign-in {
-    float: right;
-    background-color: white;
+    background-color: #fa979a;
+    color: white;
+    padding: 3px 20px;
     border: none;
     cursor: pointer;
     width: 100%;
     opacity: 0.9;
+}
+
+.btn-facebook-sign-in span {
+    position: relative;
+    top: -11px;
+    left: 10px;
 }
 
 .btn:hover {
@@ -61,7 +67,16 @@
     margin-right: 10px;
 }
 
-.or-note {
-    margin-top: 20px;
+.or-seperator {
+    margin: 30px 0 10px;
     text-align: center;
+    border-top: 1px solid #ccc;
+}
+
+.or-seperator i {
+    padding: 0 10px;
+    background: #f7f7f7;
+    position: relative;
+    top: -11px;
+    z-index: 1;
 }
