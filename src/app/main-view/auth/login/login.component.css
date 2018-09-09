@@ -80,3 +80,7 @@
     top: -11px;
     z-index: 1;
 }
+
+.help-block {
+  color: red;
+}

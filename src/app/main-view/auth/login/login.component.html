@@ -1,17 +1,43 @@
-<form id="formLogin">
+<form id="formLogin"
+      novalidate
+      [formGroup]="loginForm"
+      (ngSubmit)="login()">
 
-  <div class="input-container">
+  <small class="help-block"
+         *ngIf="displayMessage.username">
+            {{displayMessage.username}}
+  </small>
+  <div class="input-container"
+       [ngClass]="{'has-error': displayMessage.username}">
     <i class="fa fa-user icon fa-lg"></i>
-    <input class="input-field" type="text" placeholder="Tài khoản" name="usrnm">
+    <input class="input-field" 
+           type="text" 
+           placeholder="Tài khoản" 
+           name="usrnm"
+           formControlName="username">
   </div>
 
-  <div class="input-container">
+  <small class="help-block"
+         *ngIf="displayMessage.password">
+            {{displayMessage.password}}
+  </small>
+  <div class="input-container"
+       [ngClass]="{'has-error': displayMessage.password}">
     <i class="fa fa-key icon fa-lg"></i>
-    <input class="input-field" type="password" placeholder="Mật khẩu" name="psw">
+    <input class="input-field" 
+           type="password" 
+           placeholder="Mật khẩu" 
+           name="psw"
+           formControlName="password">
   </div>
 
   <div class="button-container">
-    <button type="submit" class="btn-sign-in"><i id="sign-in-icon" class="fa fa-sign-in fa-lg"></i>Đăng nhập</button>
+    <button class="btn-sign-in"
+            type="submit"
+            [disabled]='!loginForm.valid'>
+      <i id="sign-in-icon" class="fa fa-sign-in fa-lg"></i>
+      Đăng nhập
+    </button>
   </div>
 
   <div class="or-seperator">

@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 
 import { MainViewRoutingModule } from './main-view-routing.module';
 
@@ -18,6 +19,8 @@ import { TuyendungComponent } from './tuyendung/tuyendung.component';
   imports: [
     CommonModule,
     MainViewRoutingModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   declarations: [
     HomepageComponent,
