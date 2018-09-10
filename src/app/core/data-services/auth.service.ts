@@ -7,6 +7,7 @@ import { catchError, map } from 'rxjs/operators';
 import { Token } from '../data-models/Token';
 import { AppConstants } from '../../app-constants';
 import { ConfigService } from '../config-service/config.service';
+import { Router } from '@angular/router';
 
 let AUTHTOKEN = btoa(AppConstants.CLIENT_ID + ":" + AppConstants.CLIENT_SECRET);
 const httpOptions = {
@@ -21,7 +22,9 @@ const httpOptions = {
 })
 export class AuthService {
 
-  constructor(private http: HttpClient, private configService: ConfigService) { }
+  constructor(private _http: HttpClient,
+    private _router: Router,
+    private _configService: ConfigService) { }
 
   // login api to get token
   login(username: string, password: string): Observable<Token> {
@@ -30,7 +33,7 @@ export class AuthService {
       .set('username', username)
       .set('password', password);
 
-    return this.http.post<Token>(AppConstants.API_TOKEN, body.toString(), httpOptions)
+    return this._http.post<Token>(AppConstants.API_TOKEN, body.toString(), httpOptions)
       .pipe(
         map(returnedToken => {
           if (returnedToken) {
@@ -38,7 +41,7 @@ export class AuthService {
           }
           return returnedToken;
         }),
-        catchError(this.configService.handleError)
+        catchError(this._configService.handleError)
       );
   }
 
@@ -46,5 +49,6 @@ export class AuthService {
   logout(): void {
     // remove user from local storage to log user out
     localStorage.removeItem('currentUser');
+    this._router.navigate(['/homepage']);
   }
 }
