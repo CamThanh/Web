@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 
 import { Observable } from 'rxjs';
-import { catchError } from 'rxjs/operators';
+import { catchError, map } from 'rxjs/operators';
 
 import { Token } from '../data-models/Token';
 import { AppConstants } from '../../app-constants';
@@ -32,7 +32,19 @@ export class AuthService {
 
     return this.http.post<Token>(AppConstants.API_TOKEN, body.toString(), httpOptions)
       .pipe(
+        map(returnedToken => {
+          if (returnedToken) {
+            localStorage.setItem('currentUser', JSON.stringify(returnedToken));
+          }
+          return returnedToken;
+        }),
         catchError(this.configService.handleError)
       );
+  }
+
+  // logout
+  logout(): void {
+    // remove user from local storage to log user out
+    localStorage.removeItem('currentUser');
   }
 }
