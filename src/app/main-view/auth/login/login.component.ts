@@ -2,13 +2,13 @@ import { Component, OnInit, AfterViewInit, ElementRef, ViewChildren } from '@ang
 import { FormBuilder, FormGroup, Validators, FormControlName } from '@angular/forms';
 import { BsModalRef } from 'ngx-bootstrap';
 
+import { Router } from '@angular/router';
+
 import { Observable, fromEvent, merge } from 'rxjs';
 import { debounceTime } from 'rxjs/operators';
 
 import { AuthService } from '../../../core/data-services/auth.service';
-
 import { GenericValidator } from '../../../shared/validators/generic-validator';
-import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',

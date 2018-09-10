@@ -4,6 +4,9 @@ export interface IToken {
   refresh_token: string;
   expires_in: number;
   scope: string;
+  avatarUri: string;
+  email: string;
+  username: string;
 }
 
 export class Token {
@@ -12,6 +15,9 @@ export class Token {
   private _refresh_token: string;
   private _expires_in: number;
   private _scope: string;
+  private _avatarUri: string;
+  private _email: string;
+  private _username: string;
 
   constructor(token?: IToken) {
     if (token) {
@@ -20,12 +26,18 @@ export class Token {
       this.refresh_token = token.refresh_token;
       this.expires_in = token.expires_in;
       this.scope = token.scope;
+      this.avatarUri = token.avatarUri;
+      this.email = token.email;
+      this.username = token.username;
     } else {
       this.access_token = "";
       this.token_type = "";
       this.refresh_token = "";
       this.expires_in = 0;
       this.scope = "";
+      this.avatarUri = "";
+      this.email = "";
+      this.username = "";
     }
   }
 
@@ -62,5 +74,26 @@ export class Token {
   }
   public set scope(value: string) {
     this._scope = value;
+  }
+
+  public get avatarUri(): string {
+    return this._avatarUri;
+  }
+  public set avatarUri(value: string) {
+    this._avatarUri = value;
+  }
+
+  public get email(): string {
+    return this._email;
+  }
+  public set email(value: string) {
+    this._email = value;
+  }
+
+  public get username(): string {
+    return this._username;
+  }
+  public set username(value: string) {
+    this._username = value;
   }
 }

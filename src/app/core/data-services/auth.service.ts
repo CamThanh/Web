@@ -35,11 +35,11 @@ export class AuthService {
 
     return this._http.post<Token>(AppConstants.API_TOKEN, body.toString(), httpOptions)
       .pipe(
-        map(returnedToken => {
-          if (returnedToken) {
-            localStorage.setItem('currentUser', JSON.stringify(returnedToken));
+        map(responseToken => {
+          if (responseToken && responseToken.access_token) {
+            localStorage.setItem('current_user', JSON.stringify(responseToken));
           }
-          return returnedToken;
+          return responseToken;
         }),
         catchError(this._configService.handleError)
       );
@@ -48,7 +48,7 @@ export class AuthService {
   // logout
   logout(): void {
     // remove user from local storage to log user out
-    localStorage.removeItem('currentUser');
+    localStorage.removeItem('current_user');
     this._router.navigate(['/homepage']);
   }
 }
