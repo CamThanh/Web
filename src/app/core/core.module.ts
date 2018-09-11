@@ -1,10 +1,13 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { AuthService } from './data-services/auth.service';
-import { ConfigService } from './config-service/config.service';
+
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { JwtInterceptor } from './interceptors/jwt.interceptor';
 import { ErrorInterceptor } from './interceptors/error.interceptor';
+
+import { ConfigService } from './config-service/config.service';
+import { AuthService } from './data-services/auth.service';
+import { UserService } from './data-services/user.service';
 
 @NgModule({
   imports: [
@@ -16,7 +19,8 @@ import { ErrorInterceptor } from './interceptors/error.interceptor';
     { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },
 
     ConfigService,
-    AuthService
+    AuthService,
+    UserService
   ]
 })
 export class CoreModule { }

@@ -1,22 +1,84 @@
-<form id="formRegister">
+<form id="formRegister"
+      novalidate
+      [formGroup]="registerForm"
+      (ngSubmit)="register()">
 
-  <div class="input-container">
+  <small class="help-block"
+         *ngIf="displayMessage.username">
+    {{displayMessage.username}}
+  </small>
+  <div class="input-container"
+       [ngClass]="{'has-error': displayMessage.username}">
     <i class="fa fa-user icon fa-lg"></i>
-    <input class="input-field" type="text" placeholder="Tài khoản (Email)" name="usrnm">
+    <input class="input-field" 
+           type="text" 
+           placeholder="Tài khoản"
+           formControlName="username">
   </div>
 
-  <div class="input-container">
-    <i class="fa fa-key icon fa-lg"></i>
-    <input class="input-field" type="password" placeholder="Mật khẩu" name="psw">
+  <small class="help-block"
+         *ngIf="displayMessage.email">
+    {{displayMessage.email}}
+  </small>
+  <div class="input-container"
+       [ngClass]="{'has-error': displayMessage.email}">
+    <i class="fa fa-user icon fa-lg"></i>
+    <input class="input-field" 
+           type="text" 
+           placeholder="Email"
+           formControlName="email">
   </div>
 
-  <div class="input-container">
-    <i class="fa fa-key icon fa-lg"></i>
-    <input class="input-field" type="password" placeholder="Nhập lại mật khẩu" name="psw">
+  <div formGroupName="passwordGroup"
+       [ngClass]="{'has-error': registerForm.get('passwordGroup').errors}">
+
+    <small class="help-block"
+           *ngIf="displayMessage.password">
+      {{displayMessage.password}}
+    </small>
+    <div class="input-container"
+         [ngClass]="{'has-error': displayMessage.password}">
+      <i class="fa fa-key icon fa-lg"></i>
+      <input class="input-field" 
+             type="password" 
+             placeholder="Mật khẩu"
+             formControlName="password">
+    </div>
+
+    <div *ngIf="(registerForm.get('passwordGroup.confirmPassword').touched ||
+                 registerForm.get('passwordGroup.confirmPassword').dirty)  &&
+                (registerForm.get('passwordGroup.confirmPassword').errors  ||
+                 registerForm.get('passwordGroup').errors)">
+      <small class="help-block"
+             *ngIf="registerForm.get('passwordGroup.confirmPassword').errors?.required &&
+                   !registerForm.get('passwordGroup').errors?.match">
+            {{displayMessage.confirmPassword}}
+      </small>
+      <small class="help-block"
+             *ngIf="registerForm.get('passwordGroup').errors?.match">
+            Mật khẩu xác nhận không khớp.
+      </small>
+    </div>
+    <div class="input-container"
+         [ngClass]="{'has-error': (registerForm.get('passwordGroup.confirmPassword').touched ||
+                                   registerForm.get('passwordGroup.confirmPassword').dirty)  &&
+                                  !registerForm.get('passwordGroup.confirmPassword').valid }">
+      <i class="fa fa-key icon fa-lg"></i>
+      <input class="input-field" 
+             type="password" 
+             placeholder="Nhập lại mật khẩu"
+             formControlName="confirmPassword">
+    </div>
+
   </div>
 
   <div class="button-container">
-    <button type="submit" class="btn"><i id="sign-in-icon" class="fa fa-user-plus fa-lg"></i>Đăng ký</button>
+    <button type="submit" 
+            class="btn"
+            [disabled]='!registerForm.valid'>
+      <i id="sign-in-icon" class="fa fa-user-plus fa-lg"></i>
+      Đăng ký
+    </button>
   </div>
 
 </form>
