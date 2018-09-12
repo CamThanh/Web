@@ -59,8 +59,9 @@
     left: 10px;
 }
 
-.btn:hover {
-    opacity: 1;
+.btn:disabled {
+  cursor: not-allowed;
+  opacity: 0.5;
 }
 
 #sign-in-icon {

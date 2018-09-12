@@ -24,8 +24,9 @@ export class UserService {
 
   // create user account (Register)
   createUser(user: User): Observable<User> {
+    let requestBody = JSON.stringify(user);
     return this._http
-      .post<User>(AppConstants.API_CREATE_USER, user, httpOptions)
+      .post<User>(AppConstants.API_CREATE_USER, requestBody, httpOptions)
       .pipe(catchError(this._configService.handleError));
   }
 }
