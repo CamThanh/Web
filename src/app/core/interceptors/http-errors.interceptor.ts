@@ -8,6 +8,7 @@ import { AuthService } from "../data-services/auth.service";
 
 @Injectable()
 export class HttpErrorsInterceptor implements HttpInterceptor {
+  
   constructor(private _authService: AuthService) { }
 
   intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
