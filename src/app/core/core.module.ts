@@ -3,9 +3,8 @@ import { CommonModule } from '@angular/common';
 
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { JwtInterceptor } from './interceptors/jwt.interceptor';
-import { ErrorInterceptor } from './interceptors/error.interceptor';
+import { HttpErrorsInterceptor } from './interceptors/http-errors.interceptor';
 
-import { ConfigService } from './config-service/config.service';
 import { AuthService } from './data-services/auth.service';
 import { UserService } from './data-services/user.service';
 
@@ -16,9 +15,8 @@ import { UserService } from './data-services/user.service';
   declarations: [],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
-    { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },
+    { provide: HTTP_INTERCEPTORS, useClass: HttpErrorsInterceptor, multi: true },
 
-    ConfigService,
     AuthService,
     UserService
   ]

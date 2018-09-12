@@ -6,7 +6,6 @@ import { catchError, map } from 'rxjs/operators';
 
 import { Token } from '../data-models/Token';
 import { AppConstants } from '../../app-constants';
-import { ConfigService } from '../config-service/config.service';
 import { Router } from '@angular/router';
 
 let AUTHTOKEN = btoa(AppConstants.CLIENT_ID + ":" + AppConstants.CLIENT_SECRET);
@@ -23,8 +22,7 @@ const httpOptions = {
 export class AuthService {
 
   constructor(private _http: HttpClient,
-    private _router: Router,
-    private _configService: ConfigService) { }
+    private _router: Router) { }
 
   // login api to get token
   login(username: string, password: string): Observable<Token> {
@@ -40,8 +38,7 @@ export class AuthService {
             localStorage.setItem('current_user', JSON.stringify(responseToken));
           }
           return responseToken;
-        }),
-        catchError(this._configService.handleError)
+        })
       );
   }
 

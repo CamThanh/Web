@@ -11,5 +11,5 @@ export class AppConstants {
   public static API_TOKEN = "http://188.166.246.242:9999/camthanh-oauth2/oauth/token";
 
   // APIs endpoint
-  public static API_CREATE_USER = "http://188.166.246.242:8081/camthanh-account/account";
+  public static API_CREATE_USER = "http://10.242.39.163:8080/camthanh-account/account";
 }
