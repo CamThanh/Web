@@ -10,6 +10,8 @@ import { debounceTime } from 'rxjs/operators';
 import { AuthService } from '../../../core/data-services/auth.service';
 import { GenericValidator } from '../../../shared/validators/generic-validator';
 
+import { AuthService as SocialAuthService, FacebookLoginProvider } from 'angular-6-social-login';
+
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -27,7 +29,8 @@ export class LoginComponent implements OnInit, AfterViewInit {
   constructor(public bsModalRef: BsModalRef,
     private _router: Router,
     private _formBuilder: FormBuilder,
-    private _authService: AuthService) {
+    private _authService: AuthService,
+    private _socialAuthService: SocialAuthService) {
 
     // Define all of the validation messages for the form
     this._validationMessages = {
@@ -77,6 +80,21 @@ export class LoginComponent implements OnInit, AfterViewInit {
     } else if (!this.loginForm.dirty) {
       this.onLoginComplete();
     }
+  }
+
+  socialLogIn(socialPlatform: string) {
+    let socialPlatformProvider;
+    if (socialPlatform === "facebook") {
+      socialPlatformProvider = FacebookLoginProvider.PROVIDER_ID;
+    }
+
+    this._socialAuthService.signIn(socialPlatformProvider).then(
+      (userData) => {
+        console.log(socialPlatform + " sign in data : ", JSON.stringify(userData));
+        this._router.navigate(['/homepage']);
+        this.bsModalRef.hide();
+      }
+    );
   }
 
   onLoginComplete() {

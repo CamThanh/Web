@@ -7,6 +7,9 @@ export class AppConstants {
   public static FORM_URLENCODED = "application/x-www-form-urlencoded";
   public static APPLICATION_JSON = "application/json";
 
+  // SOCIAL APP IDs
+  public static FACEBOOK_APP_ID = "2427096427306915";
+
   // API get token endpoint
   public static API_TOKEN = "http://188.166.246.242:9999/camthanh-oauth2/oauth/token";
 

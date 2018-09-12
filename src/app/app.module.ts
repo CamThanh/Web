@@ -14,6 +14,23 @@ import { HeaderComponent } from './layouts/main-layout/header/header.component';
 import { FooterComponent } from './layouts/main-layout/footer/footer.component';
 import { AuthComponent } from './main-view/auth/auth.component';
 
+import { SocialLoginModule, AuthServiceConfig, FacebookLoginProvider } from "angular-6-social-login";
+import { AppConstants } from './app-constants';
+
+// Configs Social Login
+export function getSocialAuthServiceConfigs() {
+  let config = new AuthServiceConfig(
+    [
+      {
+        id: FacebookLoginProvider.PROVIDER_ID,
+        provider: new FacebookLoginProvider(AppConstants.FACEBOOK_APP_ID)
+      }
+    ]
+  );
+  return config;
+}
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -29,12 +46,18 @@ import { AuthComponent } from './main-view/auth/auth.component';
     ModalModule.forRoot(),
     AppRoutingModule,
     SharedModule,
-    CoreModule
+    CoreModule,
+    SocialLoginModule
   ],
   entryComponents: [
     AuthComponent
   ],
-  providers: [],
+  providers: [
+    {
+      provide: AuthServiceConfig,
+      useFactory: getSocialAuthServiceConfigs
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
