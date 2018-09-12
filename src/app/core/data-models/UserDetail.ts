@@ -34,7 +34,7 @@ export class UserDetail {
       this.email = "";
       this.firstname = "";
       this.lastname = "";
-      this.gentle = "";
+      this.gentle = "M";
       this.age = -1;
       this.phone = "";
       this.avatarUri = "";

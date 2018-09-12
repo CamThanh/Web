@@ -88,7 +88,7 @@ export class RegisterComponent implements OnInit, AfterViewInit {
 
       this._userService.createUser(this.user)
         .subscribe(result => {
-          console.log("[Response body]: " + result);
+          console.log("[Response body]: " + JSON.stringify(result));
           this.onRegisterComplete();
         });
     } else if (!this.registerForm.dirty) {
@@ -99,6 +99,7 @@ export class RegisterComponent implements OnInit, AfterViewInit {
   onRegisterComplete() {
     // Reset the form to clear the flags
     this.registerForm.reset();
+    this.bsModalRef.hide();
     this._router.navigate(['/homepage']);
   }
 }
