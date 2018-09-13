@@ -47,7 +47,7 @@
 
     <ul class="navbar-nav" *ngIf="isLoggedIn">
       <li nav-item dropdown>
-        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="false" aria-expanded="false">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           <img [src]="[loggedInUser.image]" style="width: 50px; height: 50px;">
           <span style="margin-left: 10px;">{{ loggedInUser?.name }}</span>
         </a>
