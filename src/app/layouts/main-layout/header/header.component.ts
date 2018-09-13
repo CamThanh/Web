@@ -2,6 +2,7 @@ import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 
 import { BsModalRef, BsModalService, ModalOptions } from 'ngx-bootstrap';
 import { AuthComponent } from '../../../main-view/auth/auth.component';
+import { AuthService } from '../../../core/data-services/auth.service';
 
 @Component({
   selector: 'app-header',
@@ -11,10 +12,16 @@ import { AuthComponent } from '../../../main-view/auth/auth.component';
 })
 export class HeaderComponent implements OnInit {
   bsModalRef: BsModalRef;
+  isLoggedIn: boolean;
 
-  constructor(private _modalService: BsModalService) { }
+  constructor(private _modalService: BsModalService,
+    private _authService: AuthService) {
+    
+    this._authService.loginState.subscribe(state => this.isLoggedIn = state);
+  }
 
   ngOnInit() {
+
   }
 
   openModalRegisterComponent() {

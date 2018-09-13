@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable, Output, EventEmitter } from '@angular/core';
 import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 
 import { Observable } from 'rxjs';
@@ -20,6 +20,7 @@ const httpOptions = {
   providedIn: 'root'
 })
 export class AuthService {
+  @Output() loginState: EventEmitter<any> = new EventEmitter();
 
   constructor(private _http: HttpClient,
     private _router: Router) { }
@@ -36,6 +37,7 @@ export class AuthService {
         map(responseToken => {
           if (responseToken && responseToken.access_token) {
             localStorage.setItem('current_user', JSON.stringify(responseToken));
+            this.loginState.emit(true);
           }
           return responseToken;
         })
@@ -45,6 +47,7 @@ export class AuthService {
   // logout
   logout(): void {
     // remove user from local storage to log user out
+    this.loginState.emit(false);
     localStorage.removeItem('current_user');
     this._router.navigate(['/homepage']);
   }

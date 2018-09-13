@@ -36,12 +36,18 @@
       </li>
     </ul>
 
-    <ul class="navbar-nav">
+    <ul class="navbar-nav" *ngIf="!isLoggedIn">
       <li class="nav-item">
         <a class="nav-link" (click)="openModalRegisterComponent()">ĐĂNG KÝ</a>
       </li>
       <li class="nav-item">
         <a class="nav-link" (click)="openModalLoginComponent()">ĐĂNG NHẬP</a>
+      </li>
+    </ul>
+
+    <ul class="navbar-nav" *ngIf="isLoggedIn">
+      <li nav-item>
+        <a class="nav-link">LOGGED IN</a>
       </li>
     </ul>
   </div>
