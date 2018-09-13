@@ -13,11 +13,17 @@ import { AuthService } from '../../../core/data-services/auth.service';
 export class HeaderComponent implements OnInit {
   bsModalRef: BsModalRef;
   isLoggedIn: boolean;
+  loggedInUser: any;
 
   constructor(private _modalService: BsModalService,
     private _authService: AuthService) {
-    
-    this._authService.loginState.subscribe(state => this.isLoggedIn = state);
+
+    this._authService.loginState.subscribe(state => {
+      this.isLoggedIn = state;
+      if (this.isLoggedIn) {
+        this.loggedInUser = JSON.parse(sessionStorage.getItem('social_user'));
+      }
+    });
   }
 
   ngOnInit() {
