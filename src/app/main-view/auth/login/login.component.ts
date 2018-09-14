@@ -91,8 +91,10 @@ export class LoginComponent implements OnInit, AfterViewInit {
     this._socialAuthService.signIn(socialPlatformProvider).then(
       (userData) => {
         console.log(socialPlatform + " sign in data : ", JSON.stringify(userData));
+        // start to save social_user in session storage and set logged in state
         sessionStorage.setItem('social_user', JSON.stringify(userData));
         this._authService.loginState.emit(true);
+        // navigate to homepage again
         this._router.navigate(['/homepage']);
         this.bsModalRef.hide();
       }

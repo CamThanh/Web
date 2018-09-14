@@ -46,6 +46,7 @@ export class AuthService {
           if (responseToken && responseToken.access_token) {
             localStorage.setItem('current_user', JSON.stringify(responseToken));
             this.loginState.emit(true);
+            this.isLoggedIn = true;
           }
           return responseToken;
         })
