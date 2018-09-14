@@ -22,6 +22,14 @@ const httpOptions = {
 export class AuthService {
   @Output() loginState: EventEmitter<any> = new EventEmitter();
 
+  private _isLoggedIn: boolean;
+  public get isLoggedIn(): boolean {
+    return this._isLoggedIn;
+  }
+  public set isLoggedIn(value: boolean) {
+    this._isLoggedIn = value;
+  }
+
   constructor(private _http: HttpClient,
     private _router: Router) { }
 
@@ -48,7 +56,19 @@ export class AuthService {
   logout(): void {
     // remove user from local storage to log user out
     this.loginState.emit(false);
+    this.isLoggedIn = false;
     localStorage.removeItem('current_user');
+    sessionStorage.removeItem('social_user');
     this._router.navigate(['/homepage']);
+  }
+
+  checkLogInState() {
+    let socialUser = JSON.parse(sessionStorage.getItem('social_user'));
+    let ctUser = JSON.parse(localStorage.getItem('current_user'));
+    if (socialUser || ctUser) {
+      this.isLoggedIn = true;
+    } else {
+      this.isLoggedIn = false;
+    }
   }
 }

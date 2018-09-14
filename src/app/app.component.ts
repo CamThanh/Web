@@ -10,7 +10,6 @@ export class AppComponent {
   title = 'app';
 
   constructor(private _authService: AuthService) {
-    // not yet log-in
-    this._authService.loginState.emit(false);
+    this._authService.checkLogInState();
   }
 }

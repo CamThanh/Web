@@ -102,6 +102,7 @@ export class LoginComponent implements OnInit, AfterViewInit {
   onLoginComplete() {
     // Reset the form to clear the flags
     this.loginForm.reset();
+    this.bsModalRef.hide();
     this._router.navigate(['/homepage']);
   }
 }

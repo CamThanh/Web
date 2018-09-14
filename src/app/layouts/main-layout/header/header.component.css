@@ -31,3 +31,7 @@
 .active-link {
     border-bottom: 1px solid #53383d;
 }
+
+.dropdown-toggle::after {
+  display:none;
+}

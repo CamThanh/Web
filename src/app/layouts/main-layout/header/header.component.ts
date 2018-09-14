@@ -17,17 +17,21 @@ export class HeaderComponent implements OnInit {
 
   constructor(private _modalService: BsModalService,
     private _authService: AuthService) {
+    if (this._authService.isLoggedIn) {
+      // user still in session
+      this.isLoggedIn = this._authService.isLoggedIn;
+      this.loggedInUser = JSON.parse(sessionStorage.getItem('social_user'));
+    }
+  }
 
+  ngOnInit() {
+    // look for user login state
     this._authService.loginState.subscribe(state => {
       this.isLoggedIn = state;
       if (this.isLoggedIn) {
         this.loggedInUser = JSON.parse(sessionStorage.getItem('social_user'));
       }
     });
-  }
-
-  ngOnInit() {
-
   }
 
   openModalRegisterComponent() {
@@ -44,5 +48,9 @@ export class HeaderComponent implements OnInit {
       isRegister: false,
     };
     this.bsModalRef = this._modalService.show(AuthComponent, { initialState, class: "custom-modal" });
+  }
+
+  logout() {
+    this._authService.logout();
   }
 }
