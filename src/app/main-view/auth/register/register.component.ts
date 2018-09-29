@@ -87,7 +87,7 @@ export class RegisterComponent implements OnInit, AfterViewInit {
       this.user.userDetail.email = this.registerForm.get('email').value;
 
       this._userService.createUser(this.user)
-        .subscribe(result => {
+        .subscribe((result: User) => {
           console.log("[Response body]: " + JSON.stringify(result));
           this.onRegisterComplete();
         });

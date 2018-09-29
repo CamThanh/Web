@@ -74,7 +74,7 @@ export class LoginComponent implements OnInit, AfterViewInit {
 
       this._authService.login(inputted_username, inputted_password)
         .subscribe(result => {
-          console.log("Returned Token: " + result);
+          console.log("Returned Token: " + JSON.stringify(result));
           this.onLoginComplete();
         });
     } else if (!this.loginForm.dirty) {
@@ -92,7 +92,7 @@ export class LoginComponent implements OnInit, AfterViewInit {
       (userData) => {
         console.log(socialPlatform + " sign in data : ", JSON.stringify(userData));
         // start to save social_user in session storage and set logged in state
-        sessionStorage.setItem('social_user', JSON.stringify(userData));
+        localStorage.setItem('current_user', JSON.stringify(userData));
         this._authService.loginState.emit(true);
         // navigate to homepage again
         this._router.navigate(['/homepage']);

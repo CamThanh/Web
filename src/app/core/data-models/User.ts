@@ -1,5 +1,7 @@
 import { IUserDetail, UserDetail } from "./UserDetail";
 import { IAuthority, Authority } from "./Authority";
+import { Link, ILink } from "./Links";
+import { DateModel } from "./DateModel";
 
 export interface IUser {
   uuid: string;
@@ -14,6 +16,8 @@ export interface IUser {
   credentialsNonExpired: boolean;
   userDetail: IUserDetail;
   authorities: IAuthority[];
+  links: ILink[];
+  dateModel: DateModel;
 }
 
 export class User {
@@ -29,6 +33,8 @@ export class User {
   credentialsNonExpired: boolean;
   userDetail: UserDetail;
   authorities: Authority[];
+  links: Link[];
+  dateModel: DateModel;
 
   constructor(user?: IUser) {
     if (user) {
@@ -46,6 +52,10 @@ export class User {
       for (let authority of user.authorities) {
         this.authorities.push(new Authority(authority));
       }
+      for (let link of user.links) {
+        this.links.push(new Link(link));
+      }
+      this.dateModel = new DateModel(user.dateModel);
     } else {
       this.uuid = "";
       this.username = "";
@@ -53,12 +63,14 @@ export class User {
       this.accountExpired = false;
       this.accountLocked = false;
       this.credentialsExpired = false;
-      this.enabled = false;
+      this.enabled = true;
       this.accountNonExpired = false;
       this.accountNonLocked = false;
       this.credentialsNonExpired = false;
       this.userDetail = new UserDetail();
       this.authorities = new Array<Authority>();
+      this.links = new Array<Link>();
+      this.dateModel = new DateModel();
     }
   }
 }

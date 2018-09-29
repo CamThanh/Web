@@ -46,16 +46,32 @@
     </ul>
 
     <ul class="navbar-nav" *ngIf="isLoggedIn">
-      <li nav-item dropdown>
+      <li nav-item dropdown *ngIf="loggedInUser.user; else social_user">
         <a class="nav-link dropdown-toggle avatar-profile" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          <img [src]="[loggedInUser.image]" style="width: 45px; height: 45px; border-radius: 50%">
-          <span style="margin-left: 10px;">{{ loggedInUser?.name }}</span>
+          <img *ngIf="loggedInUser.user.userDetail.avatarUri; else default_avatar"  
+              [src]="[loggedInUser.user.userDetail.avatarUri]" style="width: 45px; height: 45px; border-radius: 50%">
+          <ng-template #default_avatar>
+            <img src="../../../../assets/images/default-avatar.jpg" style="width: 45px; height: 45px; border-radius: 50%">
+          </ng-template>
+          <span style="margin-left: 10px;">{{ loggedInUser.user.username }}</span>
         </a>
         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
           <a class="dropdown-item" href="#">Profile</a>
           <a class="dropdown-item" (click)="logout()">Đăng xuất</a>
         </div>
       </li>
+      <ng-template #social_user>
+        <li nav-item dropdown>
+          <a class="nav-link dropdown-toggle avatar-profile" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <img [src]="[loggedInUser.image]" style="width: 45px; height: 45px; border-radius: 50%">
+            <span style="margin-left: 10px;">{{ loggedInUser.name }}</span>
+          </a>
+          <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
+            <a class="dropdown-item" href="#">Profile</a>
+            <a class="dropdown-item" (click)="logout()">Đăng xuất</a>
+          </div>
+        </li>
+      </ng-template>
     </ul>
   </div>
 </nav>

@@ -11,8 +11,8 @@ export class AppConstants {
   public static FACEBOOK_APP_ID = "2427096427306915";
 
   // API get token endpoint
-  public static API_TOKEN = "http://188.166.246.242:9999/camthanh-oauth2/oauth/token";
+  public static API_TOKEN = "http://13.228.160.79:9999/camthanh-oauth2/oauth/token";
 
   // APIs endpoint
-  public static API_CREATE_USER = "http://10.242.39.163:8080/camthanh-account/account";
+  public static API_CREATE_USER = "http://13.228.160.79:8080/camthanh-account/account";
 }

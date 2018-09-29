@@ -59,14 +59,12 @@ export class AuthService {
     this.loginState.emit(false);
     this.isLoggedIn = false;
     localStorage.removeItem('current_user');
-    sessionStorage.removeItem('social_user');
     this._router.navigate(['/homepage']);
   }
 
   checkLogInState() {
-    let socialUser = JSON.parse(sessionStorage.getItem('social_user'));
-    let ctUser = JSON.parse(localStorage.getItem('current_user'));
-    if (socialUser || ctUser) {
+    let current_user = JSON.parse(localStorage.getItem('current_user'));
+    if (current_user) {
       this.isLoggedIn = true;
     } else {
       this.isLoggedIn = false;

@@ -20,7 +20,7 @@ export class HeaderComponent implements OnInit {
     if (this._authService.isLoggedIn) {
       // user still in session
       this.isLoggedIn = this._authService.isLoggedIn;
-      this.loggedInUser = JSON.parse(sessionStorage.getItem('social_user'));
+      this.loggedInUser = JSON.parse(localStorage.getItem('current_user'));
     }
   }
 
@@ -29,7 +29,7 @@ export class HeaderComponent implements OnInit {
     this._authService.loginState.subscribe(state => {
       this.isLoggedIn = state;
       if (this.isLoggedIn) {
-        this.loggedInUser = JSON.parse(sessionStorage.getItem('social_user'));
+        this.loggedInUser = JSON.parse(localStorage.getItem('current_user'));
       }
     });
   }
