@@ -14,15 +14,6 @@
 }
 
 /* Navbar Section */
-.navbar-brand {
-  font-size: 22px;
-  margin-top: 8px;
-}
-
-.navbar-brand img {
-  margin-top: -10px;
-}
-
 .bg-pink {
     background-color: #ffcdcf;
 }
