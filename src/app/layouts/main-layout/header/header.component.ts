@@ -39,7 +39,7 @@ export class HeaderComponent implements OnInit {
       isLogin: false,
       isRegister: true,
     };
-    this.bsModalRef = this._modalService.show(AuthComponent, { initialState, class: "custom-modal" });
+    this.bsModalRef = this._modalService.show(AuthComponent, { initialState });
   }
 
   openModalLoginComponent() {
@@ -47,7 +47,7 @@ export class HeaderComponent implements OnInit {
       isLogin: true,
       isRegister: false,
     };
-    this.bsModalRef = this._modalService.show(AuthComponent, { initialState, class: "custom-modal" });
+    this.bsModalRef = this._modalService.show(AuthComponent, { initialState });
   }
 
   logout() {

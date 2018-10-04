@@ -1,17 +1,15 @@
-.custom-modal {
-    width: auto;
-}
-
 .modal-content {
     border-radius: 15px;
     box-shadow: 0 4px 8px 0 rgb(170, 170, 170), 0 6px 20px 0 rgb(170, 170, 170);
 }
 
 .modal-header img {
+    margin-top: -20px;
+    margin-bottom: -40px;
     margin-right: auto;
     margin-left: auto;
-    width: 60%;
-    height: 60%;
+    width: 70%;
+    height: auto;
 }
 
 .nav-tabs .nav-item.show .nav-link, .nav-tabs .nav-link.active {
