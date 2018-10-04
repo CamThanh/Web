@@ -48,7 +48,7 @@
           <img *ngIf="loggedInUser.user.userDetail.avatarUri; else default_avatar"  
               [src]="[loggedInUser.user.userDetail.avatarUri]" style="width: 45px; height: 45px; border-radius: 50%">
           <ng-template #default_avatar>
-            <img src="../../../../assets/images/default-avatar.jpg" style="width: 45px; height: 45px; border-radius: 50%">
+            <img src="../../../../assets/images/etc/default-avatar.jpg" style="width: 45px; height: 45px; border-radius: 50%">
           </ng-template>
           <span style="margin-left: 10px;">{{ loggedInUser.user.username }}</span>
         </a>
