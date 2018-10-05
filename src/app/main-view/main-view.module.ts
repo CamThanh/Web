@@ -28,9 +28,9 @@ import { TuyendungComponent } from './tuyendung/tuyendung.component';
     ReviewComponent,
     ComposeComponent,
     SaccamthanhComponent,
+    AuthComponent,
     RegisterComponent,
     LoginComponent,
-    AuthComponent,
     VipComponent,
     TuyendungComponent
   ]
